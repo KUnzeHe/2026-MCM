@@ -92,7 +92,7 @@ class ModelParams:
     C_site: float = 2.0e9         # CAPEX per new launch site ($2B)
     
     # Rocket Performance
-    L_site_annual: float = 700.0  # Launches per site per year (aggressive reuse)
+    L_site_annual: float = 2000.0  # Launches per site per year (aggressive reuse)
     p_B: float = 150.0            # Payload per launch (tons) - Starship class
     
     # Infrastructure Growth Model
@@ -691,7 +691,7 @@ def run_analysis():
     """Execute comprehensive transport optimization analysis."""
     
     # Output directory
-    output_dir = "1c/image/Question1"
+    output_dir = "Problem B/draft/Question 1/1c/image"
     ensure_dir(output_dir)
     
     # Initialize model

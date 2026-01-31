@@ -48,7 +48,7 @@ class ModelParams:
     # Reference code uses 700 launches/year (~2 per day), likely assuming rapid reuse.
     # Scenario C (1 day turnaround) -> 365. 
     # We will use 700 to match the reference snippet provided by user.
-    L_site_annual: float = 700.0 # Launches per site per year
+    L_site_annual: float = 2000.0 # Launches per site per year
     p_B: float = 150.0    # Payload per launch (tons) - Starship class
     
     # Growth Model for Ground Infrastructure
@@ -235,7 +235,7 @@ def run_analysis():
     ax2.tick_params(axis='y', labelcolor='r')
     
     plt.title('Infrastructure Growth & Capacity Dynamics (Logistic Model)')
-    plt.savefig('1c/image/Question1/infrastructure_growth_v4.png')
+    plt.savefig('Problem B/draft/Question 1/1c/image/Question1/infrastructure_growth_v4.png')
     print("Generated infrastructure_growth_v4.png")
     
     # 2. Pareto Optimization Analysis
@@ -306,7 +306,7 @@ def run_analysis():
     ax_mass.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('1c/image/Question1/optimization_results_v4.png')
+    plt.savefig('Problem B/draft/Question 1/1c/image/Question1/optimization_results_v4.png')
     print("Generated optimization_results_v4.png")
 
 if __name__ == "__main__":
