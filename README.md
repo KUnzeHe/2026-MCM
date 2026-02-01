@@ -76,7 +76,10 @@
 **核心创新**：建立了完整的多目标优化框架，包含：
 
 1. **Logistic 基础设施增长模型**
-   $$N(t) = \frac{K}{1 + \left( \frac{K - N_0}{N_0} \right) e^{-r t}}$$
+
+   ```math
+   N(t) = \frac{K}{1 + \left( \frac{K - N_0}{N_0} \right) e^{-r t}}
+   ```
 
 2. **多目标优化求解 (Ver 5.0)** —— 生成 Pareto 前沿，分析时间与成本的权衡。
 
