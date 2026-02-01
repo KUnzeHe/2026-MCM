@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "generated": "2026-02-01T22:37:16.136845",
+    "model_version": "1.0",
+    "monte_carlo_samples": 500
+  },
+  "scenarios": {
+    "Pure Elevator (Q1a)": {
+      "carbon_debt_Mt": 15.0,
+      "break_even_years": 10.00667111407605,
+      "seis_score": 0.1400533689126084,
+      "seis_grade": "A+",
+      "is_sustainable": true
+    },
+    "Pure Rocket (Q1b)": {
+      "carbon_debt_Mt": 1666.6666666666665,
+      "break_even_years": 1250.0,
+      "seis_score": 111.16623709919321,
+      "seis_grade": "F",
+      "is_sustainable": false
+    },
+    "Hybrid (Q2 Solution)": {
+      "carbon_debt_Mt": 1506.0,
+      "break_even_years": 1115.638195421883,
+      "seis_score": 102.36099637235154,
+      "seis_grade": "F",
+      "is_sustainable": false
+    }
+  },
+  "monte_carlo": {
+    "Pure Elevator": {
+      "seis_mean": 0.14393047648659715,
+      "seis_std": 0.020931996948049956,
+      "carbon_debt_mean": 14.900719505322186,
+      "carbon_debt_std": 0.9860328086010439,
+      "seis_p5": 0.11924999834390407,
+      "seis_p95": 0.18223805733774281
+    },
+    "Pure Rocket": {
+      "seis_mean": 111.0671409267803,
+      "seis_std": 5.7358758560764205,
+      "carbon_debt_mean": 1672.6750721224314,
+      "carbon_debt_std": 308.8504754945121,
+      "seis_p5": 102.22419294438983,
+      "seis_p95": 119.97462303003591
+    },
+    "Hybrid": {
+      "seis_mean": 102.155649276369,
+      "seis_std": 5.0972477862751555,
+      "carbon_debt_mean": 1496.9319354463523,
+      "carbon_debt_std": 307.40022760754,
+      "seis_p5": 94.48768098585934,
+      "seis_p95": 109.74740635350351
+    }
+  },
+  "optimization": {
+    "optimal_elevator_fraction": 1.0,
+    "optimal_seis": 0.1400533689126084
+  }
+}

@@ -1,0 +1,31 @@
+======================================================================
+NUMERICAL RESULTS FOR PAPER - Question 4
+======================================================================
+
+TABLE 1: Environmental Impact Comparison of Transport Scenarios
+----------------------------------------------------------------------
+Scenario             | E_const (Mt) | T_BE (yr)  | SEIS     | Grade 
+----------------------------------------------------------------------
+Pure Elevator (Q1a)  | 15.0         | 10.0       | 0.14     | A+    
+Pure Rocket (Q1b)    | 1666.7       | 1250.0     | 111.17   | F     
+Hybrid (Q2 Solution) | 1506.0       | 1115.6     | 102.36   | F     
+----------------------------------------------------------------------
+
+TABLE 2: Monte Carlo Uncertainty Analysis (N=500)
+----------------------------------------------------------------------
+Scenario             | SEIS Mean  | SEIS Std   | 95% CI              
+----------------------------------------------------------------------
+Pure Elevator        | 0.14       | 0.02       | [0.12, 0.19]        
+Pure Rocket          | 111.07     | 5.74       | [101.74, 120.49]    
+Hybrid               | 102.16     | 5.10       | [93.91, 110.65]     
+----------------------------------------------------------------------
+
+KEY NUMERICAL FINDINGS:
+----------------------------------------------------------------------
+1. Carbon intensity ratio (Rocket/Elevator): 111x
+2. Elevator break-even time: 10.0 years
+3. Rocket system never achieves environmental break-even
+4. Orbital risk (Rocket): 1333.4 (Cascade: Yes)
+5. Orbital risk (Elevator): 1.00 (Cascade: No)
+
+======================================================================

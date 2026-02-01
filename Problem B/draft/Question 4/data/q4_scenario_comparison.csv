@@ -1,0 +1,4 @@
+Scenario,E_infrastructure_Mt,E_transport_Mt,E_total_Mt,E_ops_annual_Mt,Break_Even_Years,SEIS_Score,SEIS_Grade,Is_Sustainable
+Pure Elevator (Q1a),5.00,10.00,15.00,0.0010,10.0,0.14,A+,True
+Pure Rocket (Q1b),0.00,1666.67,1666.67,0.1667,1250.0,111.17,F,False
+Hybrid (Q2 Solution),5.00,1501.00,1506.00,0.1501,1115.6,102.36,F,False
