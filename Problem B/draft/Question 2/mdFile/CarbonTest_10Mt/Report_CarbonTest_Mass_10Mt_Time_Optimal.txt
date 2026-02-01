@@ -1,0 +1,49 @@
+================================================================================
+SCENARIO ANALYSIS REPORT
+Mission: 10.0 million tons (no time limit)
+================================================================================
+
+CARBON EMISSIONS PARAMETERS:
+----------------------------------------
+Rocket CO2 per launch: 2500 tons
+Carbon price: $150/ton CO2
+Elevator CO2 per ton: 0.1 tons
+Elevator construction CO2: 5.0 million tons
+Launch site construction CO2: 100 thousand tons per site
+
+MINIMUM TIME REQUIREMENTS:
+----------------------------------------
+Ideal conditions: 2.4586 years
+Real conditions:  2.6448 years
+Time increase:    0.1862 years (7.58%)
+
+SOLUTION AT SPECIFIED TIME:
+----------------------------------------
+Duration: 3.1738 years
+
+MASS DISTRIBUTION:
+  Elevator: 1.704 Mt (ideal) → 1.566 Mt (real)
+  Rocket:   8.296 Mt (ideal) → 8.622 Mt (real)
+  Total:    10.000 Mt (ideal) → 10.188 Mt (real)
+
+ROCKET LAUNCHES:
+  Ideal: 0.06 million launches
+  Real:  0.06 million launches
+
+CARBON EMISSIONS (Million tons CO2):
+  Rocket Operational: 158.688 Mt (ideal) → 149.109 Mt (real)
+  Rocket Construction: 0.000 Mt (ideal) → 0.000 Mt (real)
+  Elevator Construction: 5.000 Mt (ideal) → 5.000 Mt (real)
+  TOTAL CO2: 163.858 Mt (ideal) → 154.266 Mt (real)
+  Carbon Intensity: 16.386 tCO2/t (ideal) → 15.141 tCO2/t (real)
+
+COST DISTRIBUTION (Billion USD):
+  Elevator Total: $105.165B (ideal) → $106.674B (real)
+  Rocket Total:   $2390.151B (ideal) → $2815.799B (real)
+  System Total:   $2495.316B (ideal) → $2922.473B (real)
+  Cost Increase:  +17.1%
+
+CARBON COST BREAKDOWN (Billion USD):
+  Elevator Carbon Cost: $0.776B (ideal) → $0.773B (real)
+  Rocket Carbon Cost:   $23.803B (ideal) → $22.366B (real)
+  Total Carbon Cost:    $24.579B (ideal) → $23.140B (real)
