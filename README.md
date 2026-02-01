@@ -70,7 +70,8 @@
 - **系统架构**：地面发射场 → 重型火箭 → 月球
 - **运力计算**：
    $$T_R = N_{\text{sites}} \cdot L_{\max} \cdot p_B$$
-- **成本模型**：$$C_{1b} = c_R \cdot M_{\text{tot}}$$
+- **成本模型**：
+   $$C_{1b} = c_R \cdot M_{\text{tot}}$$
 
 #### 1c. 混合运输系统优化 (Hybrid System)
 
