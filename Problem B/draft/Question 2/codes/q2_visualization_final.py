@@ -292,7 +292,7 @@ def plot_carbon_truth(data):
                     color=['#2A9D8F', '#264653'])
     
     # Add smoke effect (symbolic)
-    ax1.text(1, e_rocket * 1.05, '☁️', fontsize=40, ha='center', va='bottom', color='gray', alpha=0.5)
+    # ax1.text(1, e_rocket * 1.05, fontsize=40, ha='center', va='bottom', color='gray', alpha=0.5)
     
     ax1.set_ylabel('Total Emissions (Million Tons CO₂) [Log Scale]', fontsize=12)
     ax1.set_title('Total Carbon Footprint (Log Scale)', fontsize=14, fontweight='bold')
