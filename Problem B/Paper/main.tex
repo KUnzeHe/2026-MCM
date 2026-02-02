@@ -739,4 +739,69 @@ MCM-2026 Modeling Team
 \bibliographystyle{plain}
 \bibliography{../Reference/ref}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Report on Use of AI Tools}
+\addcontentsline{toc}{section}{Report on Use of AI Tools}
+
+\begin{enumerate}
+
+	\item To quickly learn and understand relevant models and background information for academic topics, and to improve the quality of non-native language expression in academic writing, our team employed AI technology. However, we declare that all AI-generated content was used for reference only, and to ensure its reliability, it underwent multiple layers of human review and cross-validation to guarantee its compliance with academic standards. Throughout the process, we strictly adhered to research ethics to ensure there was no misuse of AI technology.
+
+    \item OpenAI ChatGPT (\emph{GPT-5.2})\\
+    Query: \emph{<Please briefly analyze and evaluate our modeling work, pointing out its strengths and weaknesses.>}\\
+    Output: \emph{<
+		Overall, the greatest strength of your model is its broad scope and complete structure. You didn't treat the problem merely as "transportation optimization," but rather started with transportation capacity and gradually expanded to system reliability, life support resources, water cycle, and environmental sustainability, forming a continuous decision-making chain from engineering operation to long-term development impact. This approach, moving from local technical issues to overall system planning, is a high-level approach in modeling competitions, demonstrating a clear systems engineering perspective rather than simply performing formula derivations.
+		The second strength is the close connection between the model and reality. Most of the variables you used have clear engineering significance, such as throughput, construction speed, failure rate, maintenance impact, recycling efficiency, and carbon emissions. This makes the model resemble a real-world decision-making tool, rather than an abstract mathematical game. In particular, transforming "water resource recycling efficiency" into the utilization of transportation system capacity is a very insightful step, as it reveals a critical requirement where "failure to meet it leads to overall collapse." This kind of "threshold discovery" is a valuable modeling achievement.
+		The main shortcomings are threefold. First, the space elevator is treated as a system with gradually increasing capacity in the model, but in reality, it is more likely to be under construction for a long time and only put into use after completion, which will lead to an overly optimistic assessment in some timeframes. Second, the environmental estimates for emissions during the elevator construction phase are too idealistic; once the initial carbon debt increases, your environmental advantages will need more evidence to be solidified. Third, while the four issues are logically progressive, the mathematical feedback is not strong enough; for example, the result of water resource consumption affecting capacity has not yet had a converse impact on the initial transportation optimization.
+		In short: the advantages are a macro perspective, complete structure, strong realism, and the ability to identify key system constraints; the disadvantages are that some assumptions are too idealistic, key construction processes are simplified, and the feedback between sub-models is not tight enough. If these areas are strengthened, the overall level of your model will be significantly improved.
+	>}\\
+    
+
+    \item OpenAI ChatGPT (\emph{GPT-5.2})\\
+    Query: \emph{<Please provide a brief suggestion and explanation for the visualization solution for our project.>}\\
+    Output: \emph{<
+		First, you need a system overview diagram. Use a flowchart or block diagram to illustrate: the transportation system is at the core, reliability affects effective capacity, water resources consume capacity, and the environmental module calculates emissions and carbon debt. This diagram answers the question "What system model have you built?" and is key to understanding the entire paper.
+		Second, you need a strategic choice diagram. For example, the Pareto frontier of time-cost, but clearly label areas like "rocket-centric," "hybrid optimal," and "elevator-centric," turning the curve into a "decision map," not just a mathematical result.
+		Third, you need a risk or uncertainty diagram. Use intervals, shaded bands, or distribution plots to represent Monte Carlo results, allowing reviewers to visually see "how much the results will fluctuate," demonstrating that you considered real-world risks.
+		Fourth, you need a final evaluation or comparison diagram. For example, environmental scores, comprehensive indicator comparisons, etc., to answer "Which option is best overall?"—essentially a visual version of the conclusion.
+	>}\\
+
+	\item OpenAI ChatGPT (\emph{GPT-5.2})\\
+	Query: \emph{<We are considering conducting an environmental impact analysis of a space colonization plan. What aspects do you think we can consider?>}\\
+	Output: \emph{<
+		On Earth, the unique aspect of rocket emissions lies not in the total amount, but in the emission altitude. Combustion products are directly injected into the upper stratosphere, altering the radiation balance more efficiently than ground-based sources; black carbon particles may provide additional endothermic effects, and some byproducts participate in the ozone cycle. As launch frequency increases, the impact will shift from "negligible at the research level" to "a climate-significant emission source." Simultaneously, the manufacturing of launch vehicles and modules relies on energy-intensive materials and sophisticated chemical systems, resulting in a significant indirect carbon footprint; launch sites create regional ecological disturbances such as local noise, exhaust impacts, and propellant risks. During the transportation phase, the main problem is the accumulation of orbital debris. More launches mean more abandoned stages and defunct spacecraft remaining in orbit, increasing the probability of cascading collisions and threatening on-orbit infrastructure, including the International Space Station. The orbital environment has almost no natural repair capabilities, therefore this "space solid waste" has long-term, irreversible characteristics. Furthermore, metal particles released during spacecraft reentry ablation into the upper atmosphere may become a new source of aerosols, and their long-term impact remains uncertain.
+		Overall, the environmental risks at this stage are manifested in chemical and radiation disturbances to the Earth's upper atmosphere and cumulative pollution of near-Earth orbit. The key variable is whether the scale of launches and transportation exceeds the environmental carrying capacity threshold.
+	>}\\
+
+	\item OpenAI ChatGPT (\emph{GPT-5.2})\\
+	Query: \emph{<Could you briefly introduce the application of the logistic model in the engineering field? Are there any relevant textbooks or articles for us to study?>}\\	
+	Output: \emph{<
+		The logistic model is widely used in engineering fields to describe growth processes that are initially exponential but slow down as they approach a maximum limit, known as the carrying capacity. This model is particularly useful in scenarios where resources are limited, and it helps engineers and planners understand how systems evolve over time under constraints.
+		In engineering, the logistic model can be applied in various contexts, such as:
+		1. Population Dynamics: In environmental engineering, the logistic model can predict the growth of populations of organisms in ecosystems, helping to manage resources and conservation efforts.
+		2. Technology Adoption: In industrial engineering, the logistic model can describe how new technologies are adopted within a market or organization, providing insights into diffusion rates and saturation points.
+		3. Project Management: The logistic model can be used to forecast project completion rates, especially in large-scale engineering projects where resource allocation and time constraints play significant roles.
+		4. Supply Chain Management: The model can help optimize inventory levels and production rates by predicting demand growth and saturation in supply chains.
+		For further study, you may refer to the following textbooks and articles:
+		Textbooks:
+		- "Systems Engineering Principles and Practice" by Alexander Kossiakoff et al. (This book covers various modeling techniques, including logistic models.)
+		- "Engineering Economy" by Leland Blank and Anthony Tarquin (This book discusses models for decision-making in engineering projects.)
+		Articles:
+		- "The Logistic Growth Model: Applications in Engineering" by John Doe et al., published in the Journal of Engineering Systems.
+		- "Modeling Technology Adoption Using Logistic Functions" by Jane Smith, published in the International Journal of Industrial Engineering.
+		These resources should provide a solid foundation for understanding the application of logistic models in engineering contexts.
+	>}\\
+
+	\item GitHub Copilot (VS Code, \emph{GPT-5.2})\\
+    Used to assist with drafting the LaTeX template and outline, improving figure layout, and supporting Python code development for generating the figures. All quantitative results presented in this paper were derived from reliable code programs written by team members.
+
+	\item GitHub Copilot (VS Code, \emph{GPT-5.2})\\
+	Used to translate the Chinese conversation with ChatGPT into English for inclusion in this report.
+
+	\item Github Copilot (VS Code, \emph{Gemini 3 Pro (Preview)})\\
+	Used to help polish and refine the language of the LaTeX document, enhancing clarity and readability.
+
+\end{enumerate}
+
 \end{document}
