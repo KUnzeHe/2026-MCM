@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: ../Reference/ref.bib
+Warning--entry type for "globalpetrolprices_usa_electricity_2025" isn't style-file defined
+--line 134 of file ../Reference/ref.bib
+Warning--entry type for "spaceinsider_launch_costs_2023" isn't style-file defined
+--line 142 of file ../Reference/ref.bib
+Warning--empty booktitle in Billinton1992ReliabilityEO
+Warning--empty booktitle in Koelle2000HandbookOC
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            583 strings with 6323 characters,
+and the built_in function-call counts, 4175 in all, are:
+= -- 388
+> -- 210
+< -- 1
++ -- 85
+- -- 70
+* -- 282
+:= -- 708
+add.period$ -- 39
+call.type$ -- 13
+change.case$ -- 71
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 149
+empty$ -- 337
+format.name$ -- 70
+if$ -- 868
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 12
+newline$ -- 68
+num.names$ -- 26
+pop$ -- 89
+preamble$ -- 1
+purify$ -- 61
+quote$ -- 0
+skip$ -- 103
+stack$ -- 0
+substring$ -- 234
+swap$ -- 23
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 2
+while$ -- 35
+width$ -- 15
+write$ -- 138
+(There were 4 warnings)

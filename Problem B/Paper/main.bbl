@@ -1,0 +1,77 @@
+\begin{thebibliography}{10}
+
+\bibitem{Billinton1992ReliabilityEO}
+Roy Billinton and Ronald~N. Allan.
+\newblock Reliability evaluation of engineering systems : concepts and
+  techniques.
+\newblock 1992.
+
+\bibitem{DALLAS2020120209}
+J.A. Dallas, S.~Raval, J.P. {Alvarez Gaitan}, S.~Saydam, and A.G. Dempster.
+\newblock The environmental impact of emissions from space launches: A
+  comprehensive review.
+\newblock {\em Journal of Cleaner Production}, 255:120209, 2020.
+
+\bibitem{996017}
+K.~Deb, A.~Pratap, S.~Agarwal, and T.~Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(2):182--197,
+  2002.
+
+\bibitem{globalpetrolprices_usa_electricity_2025}
+{GlobalPetrolPrices.com}.
+\newblock Usa electricity prices, 2025.
+
+\bibitem{GRIGORIEV20111567}
+A.I. Grigoriev, Yu.E. Sinyak, N.M. Samsonov, L.S. Bobe, N.N. Protasov, and P.O.
+  Andreychuk.
+\newblock Regeneration of water at space stations.
+\newblock {\em Acta Astronautica}, 68(9):1567--1573, 2011.
+\newblock 17th IAA Humans in Space Symposium.
+
+\bibitem{HARRIS2019465}
+Tyler~M. Harris, Pragnya~L. Eranki, and Amy~E. Landis.
+\newblock Life cycle assessment of proposed space elevator designs.
+\newblock {\em Acta Astronautica}, 161:465--474, 2019.
+
+\bibitem{Kessler1978Debris}
+Donald~J. Kessler and Burton~G. Cour-Palais.
+\newblock Collision frequency of artificial satellites: The creation of a
+  debris belt.
+\newblock {\em Journal of Geophysical Research: Space Physics},
+  83(A6):2637--2646, 1978.
+
+\bibitem{Koelle2000HandbookOC}
+Dietrich~E. Koelle.
+\newblock Handbook of cost engineering for space transportation systems with
+  transcost 7.0 : statistical-analytical model for cost estimation and
+  economical optimization of launch vehicles.
+\newblock 2000.
+
+\bibitem{LANE2026127}
+Kim Lane, Aditi Nilvarna, George~W.S. Abbey, and Michael~T. Kezirian.
+\newblock Probabilistic risk assessment (pra) for artemis and future space
+  exploration programs.
+\newblock {\em Acta Astronautica}, 242:127--140, 2026.
+
+\bibitem{Messerschmid1999}
+Ernst Messerschmid and Reinhold Bertrand.
+\newblock {\em Environmental Control and Life Support System}, pages 109--145.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 1999.
+
+\bibitem{Shapiro2009StochProg}
+Alexander Shapiro, Darinka Dentcheva, and Andrzej Ruszczyński.
+\newblock {\em Lectures on Stochastic Programming}.
+\newblock Society for Industrial and Applied Mathematics, 2009.
+
+\bibitem{spacex_falcon_users_guide_2025}
+{Space Exploration Technologies Corp.}
+\newblock {\em Falcon User's Guide}.
+\newblock SpaceX, March 2025.
+\newblock Version 8, Updated Release.
+
+\bibitem{spaceinsider_launch_costs_2023}
+{SpaceInsider.tech}.
+\newblock How much does it cost to launch a rocket?, 2023.
+
+\end{thebibliography}

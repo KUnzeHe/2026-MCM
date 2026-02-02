@@ -11,11 +11,12 @@
 	sheet = true, titleinsheet = true, keywordsinsheet = true,
 	titlepage = false, abstract = true}
 \usepackage{newtxtext}%\usepackage{palatino}
-\usepackage{lipsum}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{lastpage}
 \usepackage{tikz}
 \usepackage{xcolor}
 \usetikzlibrary{shapes.geometric, arrows, positioning, fit, calc}
@@ -44,17 +45,15 @@
 	% Enter your summary here replacing the (red) text
 	% Replace the text from here ...
 	\begin{abstract}
-		Transporting 100 million tons of materials to a lunar colony by 2050 presents an unprecedented logistical challenge. This paper develops a comprehensive mathematical framework to optimize transportation strategies, ensure resource sustainability, and minimize environmental impact.
+        Transporting $10^8$ tons of construction mass from Earth to the Moon for a 2050-era colony forces a hard trade-off between throughput, cost, risk, and environmental stewardship. We build an integrated decision framework that links logistics optimization, robustness under uncertainty, life-support sustainment, and life-cycle environmental impact.
 
-        For \textbf{Question 1}, we constructed a \textbf{Logistic Infrastructure Growth Model} and evaluated a hybrid allocation between rockets and the Space Elevator under binding capacity constraints. Under a strict \textbf{24-year (2050)} construction deadline, the elevator can deliver at most \textbf{12.9 Mt} (\textbf{12.9\%}) of the required mass, forcing rockets to carry the remainder and driving the cost to \textbf{\$40.50 Trillion (NPV)}. A Monte Carlo feasibility test (5{,}000 trials with payload uncertainty) shows that this 24-year plan has only \textbf{24.3\%} probability of finishing on time. Relaxing the schedule is therefore the dominant lever: the shortest recommended feasible timeline is \textbf{28 years} (\textbf{95.2\%} feasibility), and a more conservative \textbf{48-year} knee-point plan reduces the cost to \textbf{\$23.81 Trillion}.
-		
-        In \textbf{Question 2}, we extend the ideal plan to non-ideal conditions (maintenance, disruptions, and reliability losses) and quantify how robustness changes both cost and timeline. In representative scenario reports, real conditions increase the total system cost by about \textbf{16\%--17\%} and raise the minimum feasible completion time by about \textbf{5\%}. The strategic implication is that a hybrid architecture is not only cheaper than pure rockets, but also a more stable control policy: when rocket performance degrades, shifting marginal tonnage toward the elevator reduces schedule volatility.
+        \textbf{Innovations.} We introduce: (i) logistic \emph{infrastructure growth} + NSGA-II Pareto optimization for hybrid rocket--elevator allocation; (ii) an \emph{availability de-rating + Monte Carlo} chance-feasibility test for deadline fragility; (iii) a closed-loop \emph{capacity tax} that turns sustainment (water) into a binding logistics constraint; and (iv) the \textbf{Space Environmental Impact Score (SEIS)}, fusing LCA carbon debt/payback with Kessler-style orbital risk.
 
-		For \textbf{Question 3} (Sustainability), we uncovered a "Cost Chasm": rocket-based water transport costs a prohibitive \textbf{\$1.37 Trillion/year}. Our model mandates \textbf{98\% recycling efficiency} for economic viability (reducing costs to \$6.1 Billion/year via elevator). We also recommend a \textbf{33,750-ton strategic reserve} to guarantee survival during supply interruptions.
+        \textbf{Key results and sensitivities.} Under a strict 24-year (2050) deadline, the elevator can deliver at most 12.9 Mt (12.9\%), so rockets must carry 87.1\%, driving cost to \$40.5T (NPV). With payload uncertainty $p_B\sim U(100,150)$ (5{,}000 trials), on-time probability is 24.3\%; extending to 28 years raises feasibility to 95.2\%, while a 48-year knee-point reduces cost to \$23.8T. Non-ideal operations increase cost by 16\%--17\% and minimum time by $\sim$5\%, and under the hard deadline add 53.3 Mt CO$_2$ via rocket substitution. Water is highly sensitive to recycling ($D_{net}=D_{gross}(1-\eta)$): at $\eta=90\%$, net imports are 273{,}750 tons/yr (51\% of elevator capacity) and rocket-based water transport costs \$1.37T/yr; achieving $\eta\ge 98\%$ reduces net imports to 30{,}660 tons/yr (5.7\%) and requires a 33{,}750-ton reserve. Environmentally, SEIS rates pure elevator as A+ (20.0 Mt CO$_2$; 13.6-year break-even) versus pure rockets as F (1{,}669.7 Mt CO$_2$; no payback); the 2050 hybrid mix still implies 1{,}466.0 Mt CO$_2$ and a 997-year payback.
 
-        Finally, our \textbf{Space Environmental Impact Score (SEIS)} quantifies planetary consequences (\textbf{Question 4}). Life Cycle Assessment (LCA) shows that the \textbf{pure elevator} scenario carries a modest \textbf{20.0 Mt CO$_2$} construction debt and reaches carbon break-even in \textbf{13.6 years} (\textbf{SEIS Grade: A+}). In contrast, the \textbf{pure rocket} scenario accumulates \textbf{1669.7 Mt CO$_2$} with no meaningful payback on a lunar-only horizon (\textbf{SEIS Grade: F}), while the \textbf{2050 hybrid} construction mix (\textbf{13\% elevator + 87\% rockets}) still yields \textbf{1466.0 Mt CO$_2$} and a \textbf{997.2-year} payback. These results imply a phased policy: accept a construction-phase footprint that is physically unavoidable, then enforce elevator-dominant, near-zero-emission operations after 2050 to protect Earth's atmosphere and orbital environment.
+        Overall, schedule stringency is the dominant lever: rigid deadlines lock the program into high-cadence rocket dependence, while a phased transition that expands elevator throughput early and enforces elevator-dominant post-construction operations improves cost, reliability, and long-run environmental viability.
 
-		\vspace{1.5em}
+        \vspace{0.8em}
 		\begin{keywords}
 			Space Logistics; Multi-objective Optimization; Monte Carlo Simulation; Circular Economy; Life Cycle Assessment (SEIS)
 		\end{keywords}
@@ -736,21 +735,8 @@ MCM-2026 Modeling Team
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\newpage
-\begin{thebibliography}{99}
-	\bibitem{1} 
-	\bibitem{2}
-	\bibitem{3}
-	\bibitem{4}
-	\bibitem{5}
-	\bibitem{6}
-	\bibitem{7}
-	\bibitem{8}
-	\bibitem{9}
-	\bibitem{10}
-	\bibitem{11}
-	\bibitem{12}
-	\bibitem{13}
-\end{thebibliography}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{../Reference/ref}
 
 \end{document}
