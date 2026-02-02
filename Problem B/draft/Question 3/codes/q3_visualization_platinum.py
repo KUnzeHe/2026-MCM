@@ -82,7 +82,7 @@ def plot_feasibility_frontier():
 
     # Plot 1: Capacity (Primary Metric)
     color_cap = COLORS['primary']
-    ax1.set_xlabel('Recycling Efficiency ($\eta$)', fontsize=12, fontweight='bold')
+    ax1.set_xlabel(r'Recycling Efficiency ($\eta$)', fontsize=12, fontweight='bold')
     ax1.set_ylabel('System Capacity Occupation (%)', color=color_cap, fontsize=12, fontweight='bold')
     # Change x to percentage for readability
     line1, = ax1.plot(recycling_rates * 100, capacity_occupation, color=color_cap, linewidth=3, label='Capacity Utilization')
@@ -272,9 +272,56 @@ def plot_timeline_accumulation():
     plt.tight_layout()
     save_figure(fig, 'C_reserve_timeline_platinum.png')
 
+
+# ==========================================
+# 4. Plot D: Reserve Sensitivity (Key)
+# ==========================================
+def plot_reserve_sensitivity():
+    """One key sensitivity plot: required strategic reserve vs disruption length.
+
+    Uses three representative recycling efficiencies (baseline/target/pessimistic)
+    to show the "knife-edge" effect: small drops in $\\eta$ drastically increase
+    reserves needed to survive the same disruption.
+    """
+    print("Generating D_reserve_sensitivity_platinum.png...")
+
+    disruption_days = np.linspace(5, 60, 12)
+    scenarios = [
+        (sc_baseline, COLORS['tertiary'], 'Baseline (90%)'),
+        (sc_optimized, COLORS['primary'], 'Target (98%)'),
+        (sc_pessimistic, COLORS['secondary'], 'Low-Eff (70%)'),
+    ]
+
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    for sc, color, label in scenarios:
+        reserve = [sc.get_safety_stock(float(d)) for d in disruption_days]
+        ax.plot(disruption_days, reserve, marker='o', color=color, label=label)
+
+    ax.set_xlabel('Disruption Duration (Days)', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Required Strategic Reserve (Tons)', fontsize=12, fontweight='bold')
+    ax.set_title('Reserve Sensitivity: How Reliability and Recycling Drive Stockpile Needs', fontsize=16, pad=20)
+    ax.grid(True, linestyle='--', alpha=0.5, color='#CCCCCC')
+
+    # Mark the 30-day benchmark used elsewhere
+    ax.axvline(DISRUPTION_DAYS_ELEVATOR, color=COLORS['neutral'], linestyle='--', linewidth=2)
+    ax.text(
+        DISRUPTION_DAYS_ELEVATOR + 1,
+        ax.get_ylim()[1] * 0.92,
+        f'{DISRUPTION_DAYS_ELEVATOR:.0f}-day repair benchmark',
+        color=COLORS['neutral'],
+        fontweight='bold',
+    )
+
+    ax.legend(loc='upper left', frameon=True, framealpha=0.95)
+
+    plt.tight_layout()
+    save_figure(fig, 'D_reserve_sensitivity_platinum.png')
+
 if __name__ == "__main__":
     print(">>> Starting Platinum Trio Visualization (Q3)...")
     plot_feasibility_frontier()
     plot_cost_chasm()
     plot_timeline_accumulation()
+    plot_reserve_sensitivity()
     print(">>> All Optimized Figures Generated Successfully!")
