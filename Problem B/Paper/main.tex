@@ -46,13 +46,13 @@
 	\begin{abstract}
 		Transporting 100 million tons of materials to a lunar colony by 2050 presents an unprecedented logistical challenge. This paper develops a comprehensive mathematical framework to optimize transportation strategies, ensure resource sustainability, and minimize environmental impact.
 
-		For \textbf{Question 1}, we constructed a \textbf{Logistic Infrastructure Growth Model} coupled with a \textbf{Multi-Objective Genetic Algorithm}. Strict adherence to the 2050 deadline relies on costly rocket expansion (NPV $\approx$ \textbf{\$40 Trillion}). We identify a \textbf{Hybrid Strategy} as optimal: leveraging early rockets while prioritizing Space Elevator infrastructure. Extending the timeline to \textbf{40 years} (completion by 2066) reduces the total cost to \textbf{\$28.2 Trillion}, significantly outperforming the pure rocket scenario (NPV $>$ \$45T).
+        For \textbf{Question 1}, we constructed a \textbf{Logistic Infrastructure Growth Model} and evaluated a hybrid allocation between rockets and the Space Elevator under binding capacity constraints. Under a strict \textbf{24-year (2050)} construction deadline, the elevator can deliver at most \textbf{12.9 Mt} (\textbf{12.9\%}) of the required mass, forcing rockets to carry the remainder and driving the cost to \textbf{\$40.50 Trillion (NPV)}. A Monte Carlo feasibility test (5{,}000 trials with payload uncertainty) shows that this 24-year plan has only \textbf{24.3\%} probability of finishing on time. Relaxing the schedule is therefore the dominant lever: the shortest recommended feasible timeline is \textbf{28 years} (\textbf{95.2\%} feasibility), and a more conservative \textbf{48-year} knee-point plan reduces the cost to \textbf{\$23.81 Trillion}.
 		
-		In \textbf{Question 2}, we utilized \textbf{Monte Carlo Simulations} (10,000 scenarios) to address system robustness. Real-world uncertainties increase expected costs by \textbf{30\%--50\%}, but the Space Elevator demonstrates superior stability. We propose a dynamic risk-mitigation policy that shifts allocation to the elevator when rocket failure rates ($\lambda_R$) exceed critical thresholds.
+        In \textbf{Question 2}, we extend the ideal plan to non-ideal conditions (maintenance, disruptions, and reliability losses) and quantify how robustness changes both cost and timeline. In representative scenario reports, real conditions increase the total system cost by about \textbf{16\%--17\%} and raise the minimum feasible completion time by about \textbf{5\%}. The strategic implication is that a hybrid architecture is not only cheaper than pure rockets, but also a more stable control policy: when rocket performance degrades, shifting marginal tonnage toward the elevator reduces schedule volatility.
 
 		For \textbf{Question 3} (Sustainability), we uncovered a "Cost Chasm": rocket-based water transport costs a prohibitive \textbf{\$1.37 Trillion/year}. Our model mandates \textbf{98\% recycling efficiency} for economic viability (reducing costs to \$6.1 Billion/year via elevator). We also recommend a \textbf{33,750-ton strategic reserve} to guarantee survival during supply interruptions.
 
-		Finally, our \textbf{Space Environmental Impact Score (SEIS)} quantifies planetary consequences (\textbf{Question 4}). Life Cycle Assessment (LCA) warns that a rocket-only approach triggers a catastrophic "Kessler Syndrome" by 2050 (\textbf{SEIS Grade: F}). In contrast, the Space Elevator achieves carbon neutrality in just \textbf{13.6 years} (\textbf{SEIS Grade: A+}). We conclude that the Space Elevator is the only pathway to colonization that preserves Earth's orbital and atmospheric integrity.
+        Finally, our \textbf{Space Environmental Impact Score (SEIS)} quantifies planetary consequences (\textbf{Question 4}). Life Cycle Assessment (LCA) shows that the \textbf{pure elevator} scenario carries a modest \textbf{20.0 Mt CO$_2$} construction debt and reaches carbon break-even in \textbf{13.6 years} (\textbf{SEIS Grade: A+}). In contrast, the \textbf{pure rocket} scenario accumulates \textbf{1669.7 Mt CO$_2$} with no meaningful payback on a lunar-only horizon (\textbf{SEIS Grade: F}), while the \textbf{2050 hybrid} construction mix (\textbf{13\% elevator + 87\% rockets}) still yields \textbf{1466.0 Mt CO$_2$} and a \textbf{997.2-year} payback. These results imply a phased policy: accept a construction-phase footprint that is physically unavoidable, then enforce elevator-dominant, near-zero-emission operations after 2050 to protect Earth's atmosphere and orbital environment.
 
 		\vspace{1.5em}
 		\begin{keywords}
@@ -483,7 +483,7 @@ Taken together, the robustness analysis supports the same qualitative recommenda
 \section{Model III: Water Supply Strategy and Circular Sustainability (Question 3)}
 The logistics models developed in Questions 1--2 determine whether the Moon Colony can be built; however, a colony cannot be sustained without continuous life-support commodities. Among these, water is uniquely binding because it is simultaneously a basic survival requirement and a large-mass flow. Question 3 therefore asks for a strategy that couples \emph{demand physics} (how much water 100{,}000 residents need) with \emph{logistics feasibility} (how much net mass must still be imported from Earth given recycling) and \emph{risk preparedness} (how much reserve is required to survive disruptions).
 
-\subsection{Mathematical Formulation of the Water Sustainability Model}
+\subsection{Framework: Mass Balance, Cost, and Capacity Tax}
 The water model is built around a closed-loop mass balance. Let $P$ be the colony population, and let $d$ denote the gross per-capita annual water requirement (including life support, hygiene, food processing, and industrial use). The gross annual demand is
 \begin{equation}
     D_{gross}=P\,d.
@@ -511,85 +511,78 @@ Finally, robustness is represented by a strategic reserve $S_{safe}$ that buffer
 \end{equation}
 In our implementation, $\tau$ is chosen so that $S_{safe}$ provides a conservative pre-arrival safety stock for the full-population phase.
 
-\subsection{Demand Decomposition and the Role of Recycling}
-Let $D_{gross}$ denote the annual gross water demand of the colony under full use, and let $\eta$ be the system-wide recycling efficiency (ECLSS + operational reuse). In a closed-loop life-support architecture, recycling does not eliminate demand; it converts most of the gross demand into internal circulation, leaving a smaller \emph{net} import requirement from Earth. The mass-balance relationship $D_{net}(\eta)=D_{gross}(1-\eta)$ reveals a hard mathematical truth: when $\eta$ is high, net imports shrink linearly and logistics remain tractable; when $\eta$ degrades, the net import requirement grows rapidly and can dominate the entire transport system.
+\textbf{Demand decomposition.} Recycling does not eliminate demand; it converts most of the gross demand into internal circulation, leaving a smaller \emph{net} import requirement from Earth. The mass-balance relationship $D_{net}(\eta)=D_{gross}(1-\eta)$ reveals a hard mathematical truth: when $\eta$ is high, net imports shrink linearly and logistics remain tractable; when $\eta$ degrades, the net import requirement grows rapidly and can dominate the entire transport system. In our baseline computation for a 100{,}000-person colony, the program output implies $D_{net}=273{,}750$ tons/year at $\eta=90\%$. This corresponds to a gross demand of $D_{gross}=2{,}737{,}500$ tons/year, which is consistent with the order-of-magnitude expectations for a large, water-intensive settlement once food production, hygiene, and industrial processing are included.
 
-In our baseline computation for a 100{,}000-person colony, the program output implies $D_{net}=273{,}750$ tons/year at $\eta=90\%$. This corresponds to a gross demand of $D_{gross}=2{,}737{,}500$ tons/year, which is consistent with the order-of-magnitude expectations for a large, water-intensive settlement once food production, hygiene, and industrial processing are included.
+\subsection{Results: Cost Chasm and the 98\% Threshold}
+\textbf{The economic chasm.} To quantify sustainability, we evaluate the annual cost of transporting $D_{net}$ under different recycling efficiencies and transport modes. The water-supply model shows that with $\eta=90\%$ (a reasonable but not exceptional recycling level), transporting the net import by rockets costs \textbf{\$1{,}368.75 Billion/year}, while transporting the same mass via the elevator chain costs \textbf{\$54.75 Billion/year}. This gap is not a minor margin; it is a structural discontinuity that we call the \emph{cost chasm}. In practical terms, a rocket-dependent water plan would consume trillion-dollar budgets indefinitely, turning the colony into a permanent logistics debt.
 
-\subsection{The Economic Chasm: Transporting Water by Rocket Is Prohibitive}
-To quantify sustainability, we evaluate the annual cost of transporting $D_{net}$ under different recycling efficiencies and transport modes. The water-supply model shows that with $\eta=90\%$ (a reasonable but not exceptional recycling level), transporting the net import by rockets costs \textbf{\$1{,}368.75 Billion/year}, while transporting the same mass via the elevator chain costs \textbf{\$54.75 Billion/year}. This gap is not a minor margin; it is a structural discontinuity that we call the \emph{cost chasm}. In practical terms, a rocket-dependent water plan would consume trillion-dollar budgets indefinitely, turning the colony into a permanent logistics debt.
-
-
-\subsection{Capacity Tax and the 98\% Sustainability Threshold}
-Even if the elevator is far cheaper than rockets, it is not unlimited; using it to lift water competes directly against construction cargo. The model therefore reports not only dollar cost but also the fraction of annual elevator capacity consumed by water logistics.
+\textbf{Capacity tax and the sustainability threshold.} Even if the elevator is far cheaper than rockets, it is not unlimited; using it to lift water competes directly against construction cargo. The model therefore reports not only dollar cost but also the fraction of annual elevator capacity consumed by water logistics.
 
 At $\eta=90\%$, net water import consumes \textbf{50.98\%} of the elevator's annual capacity, meaning that half of the system would be dedicated to \emph{simply keeping people alive}, leaving insufficient headroom for construction materials, spares, and expansion payloads. If recycling drops to $\eta=70\%$, net imports rise to \textbf{1{,}642{,}500 tons/year} and would consume \textbf{305.87\%} of elevator capacity, which is physically impossible and represents a collapse mode.
 
 By contrast, at $\eta=98\%$ the net import falls to \textbf{30{,}660 tons/year}, the elevator cost becomes \textbf{\$6.13 Billion/year}, and the capacity tax drops to \textbf{5.71\%}. This regime is operationally sustainable: water logistics become a background load rather than a dominant constraint. Therefore, our analysis identifies \textbf{$\eta\ge 98\%$} as a practical sustainability threshold for a large colony.
 
-
-\subsection{Strategic Water Reserve Under Disruptions}
+\subsection{Robustness: Strategic Reserve Under Disruptions}
 Reliability analysis in Question 2 shows that disruptions are inevitable; the water system must be robust to periods of partial transport outage. We therefore design a strategic reserve $S_{safe}$ that is pre-deployed \emph{before} the full population arrives. Based on the water-supply model output, a reserve of \textbf{33{,}750 tons} is required as a safety stock. The intent of this reserve is not to replace recycling; rather, it is a buffer that decouples short-term transport failures from immediate survival risk, buying repair time and operational flexibility.
 
 \begin{figure}[!htbp]
     \centering
-    \begin{minipage}{0.49\linewidth}
+    \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/B_cost_chasm_platinum.png}
+        \includegraphics[width=\linewidth,height=0.20\textheight,keepaspectratio]{Figures/B_cost_chasm_platinum.png}
         \small\textbf{(a)} Cost Chasm
     \end{minipage}\hfill
-    \begin{minipage}{0.49\linewidth}
+    \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/A_feasibility_frontier_platinum.png}
+        \includegraphics[width=\linewidth,height=0.20\textheight,keepaspectratio]{Figures/A_feasibility_frontier_platinum.png}
         \small\textbf{(b)} Feasibility Frontier
     \end{minipage}
 
-    \vspace{0.6em}
-    \begin{minipage}{0.78\linewidth}
+    \vspace{0.25em}
+    \begin{minipage}{0.74\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/C_reserve_timeline_platinum.png}
+        \includegraphics[width=\linewidth,height=0.23\textheight,keepaspectratio]{Figures/C_reserve_timeline_platinum.png}
         \small\textbf{(c)} Reserve Timeline
     \end{minipage}
-    \caption{Question 3 (Water Sustainability Visual Summary): (a) annual cost vs. recycling efficiency; (b) recycling efficiency vs. logistics feasibility (capacity tax); (c) reserve build-up strategy prior to full-population arrival.}
+    \small
+    \caption{Question 3 (Water Sustainability Summary): (a) cost vs. recycling; (b) feasibility (capacity tax) vs. recycling; (c) reserve timeline.}
+    \normalsize
     \label{fig:q3_water_summary}
 \end{figure}
 
 \section{Model IV: Comprehensive Environmental Impact Assessment (Question 4)}
 Question 4 asks for the environmental consequence of the logistics program, including atmospheric emissions and orbital sustainability. The key difficulty is that environmental impact is multi-dimensional: rockets impose large operational carbon emissions and increase orbital debris risk, while the elevator carries an upfront construction footprint but can operate with near-zero ongoing emissions. To compare strategies consistently, we introduce a composite framework and then evaluate both carbon life-cycle behavior and orbital risk.
 
-\subsection{Mathematical Formulation of Carbon Debt and Payback}
-We treat life-cycle carbon as a balance between an upfront construction-phase \emph{carbon debt} and a long-run operational \emph{carbon slope}. Let $E_{debt}$ be the total carbon emitted during the construction program (in Mt CO$_2$). This includes rocket operations required by capacity constraints, infrastructure construction emissions, and any re-flights or maintenance overheads that occur before the system reaches its steady operating state.
-
-After construction, the operational phase has an annual carbon emission rate $e_{op}$ (Mt/year). To reflect the fact that elevator-based operations displace rocket-based operations, we also define an annual avoided-emissions rate $e_{avoid}$ (Mt/year), which represents the difference between a rocket-dominant counterfactual and the elevator-dominant operational plan.
-
-The net annual environmental improvement rate is
+\subsection{Framework: Carbon Debt, Orbital Risk, and SEIS}
+We evaluate environmental performance along two coupled channels: (i) \emph{life-cycle carbon} and (ii) \emph{orbital sustainability}. For carbon, we treat total impact as a balance between an upfront construction-phase \emph{carbon debt} and a long-run operational \emph{repayment slope}. Let $E_{debt}$ be the total construction-period emissions (Mt CO$_2$). After construction, the operational phase has an annual emission rate $e_{op}$ (Mt/year). To represent the fact that elevator-based operations displace a rocket-dominant counterfactual, we define an annual avoided-emissions rate $e_{avoid}$ (Mt/year). The net annual improvement rate is
 \begin{equation}
     e_{net}=e_{avoid}-e_{op}.
 \end{equation}
-If $e_{net}\le 0$, then the system never pays back its initial carbon debt and the carbon break-even time is effectively infinite. If $e_{net}>0$, then the carbon break-even time is
+If $e_{net}\le 0$, the system never pays back its initial carbon debt. If $e_{net}>0$, the carbon break-even time is
 \begin{equation}
     T_{BE}=\frac{E_{debt}}{e_{net}}.
 \end{equation}
-This compact expression is the backbone of our payback analysis and is what allows us to interpret the LCA plots as "debt" followed by a long-run repayment slope.
 
-\subsection{Orbital Risk Modeling (Kessler Dynamics as a Feedback Process)}
-Orbital sustainability is evaluated with a Kessler-style feedback lens: each launch increases the population of orbital objects, and collisions can generate fragments that further increase collision probability. In the model, rocket launch cadence acts as an external forcing term, while collision-driven fragmentation acts as an endogenous amplification mechanism. A generic representation is
+Orbital sustainability is evaluated with a Kessler-style feedback lens: rocket cadence increases the population of orbital objects, and collisions can generate fragments that further increase collision probability. A generic representation is
 \begin{equation}
     \frac{dR}{dt}=\alpha\,L(t)+\beta\,R(t)^2-\gamma\,R(t),
 \end{equation}
-where $R(t)$ is a debris-density or collision-risk index, $L(t)$ is launch cadence, $\alpha$ maps launches to incremental orbital pressure, $\beta$ captures cascade growth, and $\gamma$ captures mitigation/decay (e.g., de-orbiting and atmospheric drag). While the paper reports the resulting risk trajectories rather than the internal parameter tuning, the key implication is structural: sustained high $L(t)$ can push the system into a regime where the $\beta R^2$ term dominates and risk accelerates nonlinearly.
+where $R(t)$ is a debris-density or collision-risk index, $L(t)$ is launch cadence, $\alpha$ maps launches to incremental orbital pressure, $\beta$ captures cascade growth, and $\gamma$ captures mitigation/decay. The key implication is structural: sustained high $L(t)$ can push the system into a regime where the $\beta R^2$ term dominates and risk accelerates nonlinearly.
 
-\subsection{SEIS as a Structured Aggregation of Impact Channels}
-The SEIS framework aggregates carbon and orbital risk into a single decision-support lens. We compute scenario-level indicators (carbon debt, break-even time, and orbital-risk trajectories) and then map them into a unified score and grade. Conceptually, this can be represented as a normalized weighted sum
+To make comparisons interpretable, we report both the underlying physical indicators and a composite decision aid, the \textbf{Space Environmental Impact Score (SEIS)}. SEIS is a paper-defined composite indicator introduced to enhance interpretability across multiple environmental dimensions; it is \emph{not} an established external standard.
+Conceptually, SEIS can be viewed as a normalized aggregation,
 \begin{equation}
     SEIS = w_C\,\widetilde{E}_{debt} + w_T\,\widetilde{T}_{BE} + w_R\,\widetilde{R}_{max},
 \end{equation}
-where $\widetilde{\cdot}$ indicates normalization to comparable scales and $R_{max}$ is a representative high-percentile or peak risk indicator over the program horizon. In reporting, we focus on the interpretability of the resulting grades (A+ to F) and the underlying physical drivers (capacity constraints, operational cadence, and long-run displacement of rocket emissions), rather than on arbitrary numerical weighting.
+where $R_{max}$ is a representative peak risk indicator and $\widetilde{\cdot}$ denotes normalization. In reporting, we emphasize interpretability (A+ to F grades) and physical drivers (capacity constraints and launch cadence), rather than the fine details of any single weighting choice.
 
-\subsection{SEIS Framework and Evaluation Philosophy}
-We summarize environmental performance using the \textbf{Space Environmental Impact Score (SEIS)}, which aggregates major impact channels into a unified assessment. In implementation, SEIS is not treated as a single equation with arbitrary weights; instead, it is a structured decision aid that combines life-cycle carbon accounting (LCA) with a separate orbital-risk module (Kessler dynamics) and then reports scenario-level grades to support policy decisions.
+\textbf{Rubric (normalization and grades).} For the set of candidate strategies compared in this paper, we use min--max normalization for each component metric,
+\begin{equation}
+    \widetilde{z}=\frac{z-z_{\min}}{z_{\max}-z_{\min}}\in[0,1],
+\end{equation}
+where $z$ denotes $E_{debt}$, $R_{max}$, or a finite payback proxy for $T_{BE}$. If $e_{net}\le 0$ (no carbon payback), we assign $\widetilde{T}_{BE}=1$ (worst case). Unless otherwise stated, we use equal weights $w_C=w_T=w_R=\tfrac{1}{3}$ so that SEIS ranges from 0 (best) to 1 (worst) over the comparison set. For presentation, we map SEIS to an explanatory letter grade: A+ ($SEIS\le 0.10$), A ($0.10<SEIS\le 0.20$), B ($0.20<SEIS\le 0.40$), C ($0.40<SEIS\le 0.60$), D ($0.60<SEIS\le 0.80$), F ($SEIS>0.80$).
 
-\subsection{Life-Cycle Carbon Accounting: Debt, Payback, and Long-Run Dynamics}
+\subsection{Results: Life-Cycle Carbon and Orbital Sustainability}
 The LCA results establish a decisive contrast between transport architectures. For a pure elevator scenario (Q1a), the analysis reports a modest carbon debt of \textbf{20.0 Mt CO$_2$} and a carbon break-even time of \textbf{13.6 years}, corresponding to a best-in-class \textbf{SEIS Grade: A+}. For a pure rocket scenario (Q1b), the carbon debt reaches \textbf{1669.7 Mt CO$_2$} and the break-even time is effectively infinite, yielding \textbf{SEIS Grade: F}. The hybrid construction plan implied by the 2050 hard deadline (13\% elevator + 87\% rockets) still inherits a massive upfront footprint of \textbf{1466.0 Mt CO$_2$} and a break-even time of \textbf{997.2 years}, which remains environmentally unacceptable when judged on a lunar-only horizon.
 
 \begin{figure}[!htbp]
@@ -610,12 +603,7 @@ The LCA results establish a decisive contrast between transport architectures. F
 
 The deeper insight is that the large construction-phase footprint is not a matter of choice but of physics: in the 24-year build window, the elevator can transport at most \textbf{12.9 Mt} (\textbf{12.9\%}) due to its throughput ceiling, forcing rockets to carry the remaining mass. After 2050, however, the operational regime changes: the annual supply demand is \textbf{300 kt/year} while elevator capacity is \textbf{537 kt/year}, enabling a fully elevator-based, near-zero-carbon steady state with an implied utilization of \textbf{55.9\%}. This motivates a phased environmental strategy: accept an unavoidable construction debt, then strictly enforce elevator-only operations during the long operational lifetime.
 
-\subsection{Orbital Sustainability: Kessler Syndrome as a Hard Constraint}
-Carbon is not the only environmental boundary. High-cadence rocket operations increase the flux of objects and fragments in orbital regimes, raising collision probability and creating the possibility of runaway debris growth. Our orbital risk module visualizes this as a Kessler warning trajectory, highlighting that a rocket-only approach does not merely pollute; it threatens the long-run usability of near-Earth space itself.
-
-
-\subsection{Comparative Scorecards and the Environmental Verdict}
-To make the comparison interpretable at a glance, we report a radar-style environmental fingerprint together with an overall scorecard. Across both atmospheric and orbital dimensions, the elevator architecture dominates in long-run sustainability, while rocket dependence is penalized strongly.
+Carbon is not the only environmental boundary. High-cadence rocket operations increase the flux of objects and fragments in orbital regimes, raising collision probability and creating the possibility of runaway debris growth. Our orbital risk module visualizes this as a Kessler warning trajectory, highlighting that a rocket-only approach does not merely pollute; it threatens the long-run usability of near-Earth space itself. To make the comparison interpretable at a glance, we also report a radar-style environmental fingerprint together with an overall scorecard; across both atmospheric and orbital dimensions, the elevator architecture dominates in long-run sustainability, while rocket dependence is penalized strongly.
 
 \begin{figure}[!htbp]
     \centering
@@ -633,8 +621,8 @@ To make the comparison interpretable at a glance, we report a radar-style enviro
     \label{fig:q4_scorecards}
 \end{figure}
 
-\subsection{Sensitivity: How Increasing Elevator Share Improves Environmental Outcomes}
-Finally, we evaluate how environmental outcomes change as the elevator fraction increases. The sensitivity results show a monotonic improvement: moving from 0\% elevator share to 84\% reduces carbon debt from \textbf{1679.7 Mt} to \textbf{284.6 Mt} and reduces the break-even time from infinity to \textbf{193.6 years}. This does not eliminate the construction-phase constraint, but it quantifies the value of every additional percentage point of elevator throughput and supports aggressive investment in elevator capacity expansion.
+\subsection{Sensitivity and Scale Effects}
+Finally, we evaluate how outcomes change as the elevator share increases. The sensitivity results show a monotonic improvement: moving from 0\% elevator share to 84\% reduces carbon debt from \textbf{1679.7 Mt} to \textbf{284.6 Mt} and reduces the break-even time from infinity to \textbf{193.6 years}. This does not eliminate the construction-phase constraint, but it quantifies the value of every additional percentage point of elevator throughput and supports aggressive investment in elevator capacity expansion.
 
 \begin{figure}[!htbp]
     \centering
@@ -652,7 +640,6 @@ Finally, we evaluate how environmental outcomes change as the elevator fraction 
     \label{fig:q4_scale_effects}
 \end{figure}
 
-\subsection{Why Expansion Changes the Verdict: The Galactic Scale-Up Effect}
 On a Moon-only basis, the payback horizon can be centuries because the construction debt is amortized slowly. However, the analysis also shows that if the transport system becomes the backbone for broader solar-system logistics, the payback accelerates dramatically. Under a full solar-system expansion scenario, the break-even time drops from \textbf{989 years} (Moon-only) to \textbf{330 years}. This does not excuse unnecessary emissions; rather, it clarifies that the elevator behaves like infrastructure whose environmental return improves with scale and reuse.
 
 
@@ -693,18 +680,59 @@ Figure~\ref{fig:sensitivity_panel} consolidates the most informative sensitiviti
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Model Evaluation and Further Discussion}
-\subsection{Strengths}
+\subsection{Model Evaluation}
 This work is strong in its end-to-end coherence. The optimization model (Question 1) provides a transparent structure for time--cost trade-offs, the reliability model (Question 2) converts ideal plans into schedule-feasible robust recommendations under uncertainty, the sustainability model (Question 3) reveals a hard operational constraint through the water loop, and the SEIS framework (Question 4) extends the decision space beyond economics into planetary and orbital stewardship. The framework is also computationally grounded: key claims are supported by scenario simulation and reproducible visualization.
 
-\subsection{Weaknesses and Limitations}
 The dominant limitations reflect the nature of long-horizon space forecasting. Technology parameters and operational cadence are uncertain, and while the Monte Carlo approach captures variability, it cannot fully resolve deep uncertainties such as paradigm shifts in propulsion, geopolitical constraints on launch infrastructure, or discontinuous failures. In addition, SEIS aggregates multiple dimensions of harm; although the score is useful for decision-making, the precise mapping from physical outcomes to composite grades inevitably contains normative choices.
 
 \subsection{Further Discussion}
 Future refinement should focus on two directions. First, a tighter coupling between orbital debris dynamics and operations policy would allow the reliability model to account for feedback effects, where increased launch rates elevate long-run risk and constrain feasible cadence. Second, the sustainability model can be expanded from water alone to a multi-resource closed-loop economy (oxygen, nitrogen, spare parts, and energy), enabling a more complete portrait of how life-support physics interacts with logistics.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Newspaper Artical/Flyer/Magazine}
-	BALABALA
+\section{Conclusion}
+This study addresses the MCM Agency's central decision problem. The agency must deliver $M_{tot}=10^8$ tons to the Moon on a mid-century schedule, and it must do so in a way that remains robust in day-to-day operations and defensible in environmental terms. To answer this, we connect four models that reflect how the program actually behaves at scale, namely optimization, reliability, sustainment, and environmental impact.
+
+Across all four questions, the same structural lesson holds. Rockets can scale quickly, but their marginal cost and their pressure on the atmosphere and orbital environment rise with cadence. The Space Elevator lowers marginal burden and stabilizes throughput, yet its capacity ceiling prevents it from carrying the entire construction load under a hard deadline. The best strategy is therefore a phased transition in which rockets shoulder the construction-phase bottleneck, and the elevator becomes the backbone of long-run logistics.
+
+The quantitative results show that schedule stringency dominates the time--cost trade-off. If construction must finish by 2050, a 24-year window, the elevator chain can deliver at most 12.9 Mt (12.9\%), so rockets must deliver the remaining 87.1\%. Under this plan the net present cost reaches $\$40.50$ trillion, and the margin is so thin that schedule success is unlikely under uncertainty. When we test 5{,}000 Monte Carlo trials, the probability of finishing on time is only 24.3\%. By contrast, extending the schedule directly improves feasibility because elevator-delivered mass accumulates with time while the required rocket cadence falls. The shortest defensible schedule in our analysis is 28 years, which achieves a 95.2\% on-time probability. A more conservative knee-point plan at 48 years reduces cost to $\$23.81$ trillion.
+
+Reliability also matters at first order once non-ideal operations are included. Representative scenarios increase the minimum completion time by about 5\% and raise total system cost by about 16\%--17\%. On the sustainment side, our water model turns a qualitative sustainability goal into a hard capacity constraint. With 90\% recycling, water alone consumes 50.98\% of elevator capacity, which makes the system brittle. Achieving $\eta\ge 98\%$ reduces net imports to 30{,}660 tons/year, which corresponds to 5.71\% of elevator capacity and an annual transport cost of $\$6.13$B. Because disruptions are inevitable, we also recommend a strategic reserve of 33{,}750 tons to bridge realistic interruption periods without emergency rocket resupply.
+
+Environmental viability is primarily determined by how much mass is pushed through rockets during construction. Under the SEIS assessment, a pure elevator architecture carries a 20.0 Mt CO$_2$ construction debt and reaches carbon break-even in 13.6 years. Pure rockets accumulate 1669.7 Mt CO$_2$ and enter a Kessler-cascade risk regime. The 2050 hybrid mix (13\% elevator + 87\% rockets) still implies 1466.0 Mt CO$_2$ and a 997.2-year payback on a Moon-only horizon. This does not mean construction emissions are avoidable. It means they should be treated as a one-time infrastructure debt that can only be repaid if post-2050 operations are forced into an elevator-dominant, near-zero-emission regime, with explicit limits on routine rocket cadence.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Letter to MCM Agency}
+\begingroup
+\small
+\setlength{\parskip}{0.35em}
+
+\noindent\textbf{To} Director, Moon Colony Management (MCM) Agency\\
+\textbf{From} MCM-2026 Modeling Team\\
+\textbf{Date} February 2, 2026\\
+\textbf{Subject} Strategic roadmap for delivering $10^8$ tons and sustaining a 100{,}000-person colony
+
+\vspace{0.35em}
+\noindent Director,
+
+Our results show that the main challenge is scale, not reaching the Moon. Rockets can increase capacity quickly, but they become costly and fragile when the launch rate must support $10^8$ tons. The Space Elevator reduces marginal cost and makes supply more stable, but its throughput limit means it cannot carry the full construction load under a strict deadline. We therefore recommend a phased transition. Use rockets to meet the early construction bottleneck, and make the elevator the long-term backbone.
+
+If construction must finish by 2050 (24 years), the elevator chain can deliver at most 12.9 Mt (12.9\%), so rockets must deliver the remaining 87.1\%. This plan costs $\$40.50$ trillion in NPV and succeeds only 24.3\% of the time in 5{,}000 Monte Carlo trials. We recommend adjusting the schedule. A 28-year plan reaches 95.2\% on-time probability, and a conservative knee-point plan at 48 years reduces cost to $\$23.81$ trillion.
+
+Implementation should focus on capacity, robustness, and a smooth transition to operations. Invest early in elevator throughput and system hardening, and use rockets mainly as surge capacity. Reliability must be managed actively. Non-ideal operations raise minimum completion time by about 5\% and total cost by about 16\%--17\%. In practice, track utilization and shift marginal tonnage toward the elevator when rocket reliability drops.
+
+For sustainment, water becomes a binding constraint unless the loop is nearly closed. We recommend setting $\eta\ge 98\%$ as a mission-critical requirement before population arrival. At 98\%, net imports are 30{,}660 tons/year, which uses 5.71\% of elevator capacity and costs $\$6.13$B per year to transport. We also recommend pre-positioning a 33{,}750-ton reserve to cover multi-month disruptions without emergency rocket resupply.
+
+After 2050, routine demand is well matched to elevator capacity (about 300 kt/year demand versus 537 kt/year capacity). This supports an elevator-first operating policy. Rockets should be reserved for exceptional cases such as urgent repairs or rare capacity shocks.
+
+Environmental viability depends mainly on the rocket share during construction. Under SEIS, a pure elevator architecture carries 20.0 Mt CO$_2$ with a 13.6-year break-even, while pure rockets accumulate 1669.7 Mt CO$_2$ and enter a Kessler-cascade risk regime. The 2050 hybrid mix (13\% elevator and 87\% rockets) still implies 1466.0 Mt CO$_2$ and a 997.2-year payback on a Moon-only horizon. We therefore recommend clear post-2050 rules that keep routine resupply elevator-based and cap nonessential rocket cadence.
+
+In summary, we recommend a program that avoids an overly rigid 2050 deadline, builds elevator capacity early, and treats water recycling and post-2050 operating discipline as feasibility conditions. This plan improves reliability, reduces the risk of cost blow-ups driven by extreme launch cadence, and helps protect the orbital commons.
+
+\vspace{0.35em}
+\noindent Respectfully submitted,\\
+MCM-2026 Modeling Team
+\endgroup
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -724,22 +752,5 @@ Future refinement should focus on two directions. First, a tighter coupling betw
 	\bibitem{12}
 	\bibitem{13}
 \end{thebibliography}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\newpage
-
-\newpage
-\newpage
-\begin{appendices}
-\section{First appendix}
-	\begin{lstlisting}
-		CODE1
-		2
-		3
-		4
-		5
-	\end{lstlisting}
-\end{appendices}
 
 \end{document}

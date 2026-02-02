@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770047959.93992 "main.tex" "main.pdf" "main" 1770047965.7336 0
+["pdflatex"] 1770050843.8514 "main.tex" "main.pdf" "main" 1770050849.17498 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -284,10 +284,10 @@
   "Figures/Fig5_Green_Transition.png" 1770047551.40289 200077 f391ba61e7e687733f8803c265b68dd5 ""
   "Figures/Fig5_Sensitivity_Core.png" 1770047551.39693 196028 ba2d1b6dacc240fa62225fd3083687bb ""
   "Figures/Fig6_Galactic_Scaleup.png" 1770044028.73465 240954 6262a80e24a798bd5c4f8545b1ee2395 ""
-  "main.aux" 1770047965.63312 12438 af30cdc2265448877c6e160501b409a0 "pdflatex"
-  "main.out" 1770047965.63412 11266 3fe6d2f15dee7a383b86f935788c2dce "pdflatex"
-  "main.tex" 1770047938.96083 59107 58680f4fca99262f89721a2358f22395 ""
-  "main.toc" 1770047965.63432 4438 ef1c13c569766a4e8cf9ff92d2fef62f "pdflatex"
+  "main.aux" 1770050849.07693 10980 021e9c60883ea5f6e1316ef214bd94c9 "pdflatex"
+  "main.out" 1770050849.07773 8080 bf2e7689cd6ac2bc1b125abf0b7b3fd1 "pdflatex"
+  "main.tex" 1770050809.26997 70184 352008de34c65a27c976bcc18d08a04e ""
+  "main.toc" 1770050849.0779 3443 b4d5e101f35c7a3cc49f86d43d18790e "pdflatex"
   (generated)
   "main.aux"
   "main.log"
