@@ -34,10 +34,10 @@
 \contentsline {subsection}{\numberline {6.8}Sensitivity: How Increasing Elevator Share Improves Environmental Outcomes}{19}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Why Expansion Changes the Verdict: The Galactic Scale-Up Effect}{19}{subsection.6.9}%
 \contentsline {section}{\numberline {7}Sensitivity Analysis}{20}{section.7}%
-\contentsline {section}{\numberline {8}Model Evaluation and Further Discussion}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Strengths}{21}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Weaknesses and Limitations}{22}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Further Discussion}{22}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Newspaper Artical/Flyer/Magazine}{22}{section.9}%
-\contentsline {section}{Appendices}{24}{section*.2}%
-\contentsline {section}{Appendix \numberline {A}First appendix}{24}{appendix.1.A}%
+\contentsline {section}{\numberline {8}Model Evaluation and Further Discussion}{20}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Strengths}{20}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Weaknesses and Limitations}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Further Discussion}{21}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Newspaper Artical/Flyer/Magazine}{21}{section.9}%
+\contentsline {section}{Appendices}{23}{section*.2}%
+\contentsline {section}{Appendix \numberline {A}First appendix}{23}{appendix.1.A}%

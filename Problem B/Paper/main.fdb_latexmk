@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770047616.37748 "main.tex" "main.pdf" "main" 1770047621.94019 0
+["pdflatex"] 1770047959.93992 "main.tex" "main.pdf" "main" 1770047965.7336 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -63,7 +63,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -285,10 +284,10 @@
   "Figures/Fig5_Green_Transition.png" 1770047551.40289 200077 f391ba61e7e687733f8803c265b68dd5 ""
   "Figures/Fig5_Sensitivity_Core.png" 1770047551.39693 196028 ba2d1b6dacc240fa62225fd3083687bb ""
   "Figures/Fig6_Galactic_Scaleup.png" 1770044028.73465 240954 6262a80e24a798bd5c4f8545b1ee2395 ""
-  "main.aux" 1770047621.84058 13372 6f502f3d15bbef29cc686f8b3235550b "pdflatex"
-  "main.out" 1770047621.84162 11266 3fe6d2f15dee7a383b86f935788c2dce "pdflatex"
-  "main.tex" 1770047585.83684 59396 bf3dfec1a5326c1ff5210e81426277b1 ""
-  "main.toc" 1770047621.84182 4438 76f90616e47d56283c58f6fdb3dc7622 "pdflatex"
+  "main.aux" 1770047965.63312 12438 af30cdc2265448877c6e160501b409a0 "pdflatex"
+  "main.out" 1770047965.63412 11266 3fe6d2f15dee7a383b86f935788c2dce "pdflatex"
+  "main.tex" 1770047938.96083 59107 58680f4fca99262f89721a2358f22395 ""
+  "main.toc" 1770047965.63432 4438 ef1c13c569766a4e8cf9ff92d2fef62f "pdflatex"
   (generated)
   "main.aux"
   "main.log"

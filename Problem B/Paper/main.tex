@@ -225,11 +225,11 @@ Before introducing equations, Figure~\ref{fig:q1_schematics} summarizes the thre
         % --- Row (a): Elevator chain ---
         \node[label] (la) at (-1.3, 2.3
 		) {(a) Space Elevator (1a)};
-        \node[start] (a1) at (0, 1.6) {Earth Port};
-        \node[block] (a2) at (3.1, 1.6) {Space Elevator};
-        \node[block] (a3) at (6.2, 1.6) {Apex Anchor};
-        \node[block] (a4) at (9.3, 1.6) {Transfer Rocket};
-        \node[end]   (a5) at (12.4, 1.6) {Lunar Colony};
+        \node[start] (a1) at (-0.5, 1.6) {Earth Port};
+        \node[block] (a2) at (2.6, 1.6) {Space Elevator};
+        \node[block] (a3) at (5.7, 1.6) {Apex Anchor};
+        \node[block] (a4) at (8.8, 1.6) {Transfer Rocket};
+        \node[end]   (a5) at (11.9, 1.6) {Lunar Colony};
         \draw[arrow] (a1) -- (a2);
         \draw[arrow] (a2) -- (a3);
         \draw[arrow] (a3) -- (a4);
@@ -237,18 +237,18 @@ Before introducing equations, Figure~\ref{fig:q1_schematics} summarizes the thre
 
         % --- Row (b): Rocket-only ---
         \node[label] (lb) at (-1.3, 0.6) {(b) Rockets Only (1b)};
-        \node[start] (b1) at (0, -0.1) {Earth Launch Site};
-        \node[block] (b2) at (6.2, -0.1) {Heavy Rocket};
-        \node[end]   (b3) at (12.4, -0.1) {Lunar Colony};
+        \node[start] (b1) at (-0.5, -0.1) {Earth Launch Site};
+        \node[block] (b2) at (5.7, -0.1) {Heavy Rocket};
+        \node[end]   (b3) at (11.9, -0.1) {Lunar Colony};
         \draw[arrow] (b1) -- (b2);
         \draw[arrow] (b2) -- (b3);
 
         % --- Row (c): Hybrid ---
         \node[label] (lc) at (-1.3, -1.2) {(c) Hybrid System (1c)};
-        \node[start] (c1) at (0, -2.0) {Earth Surface Demand};
-        \node[block] (c2) at (6.2, -1.3) {Elevator Chain};
-        \node[block] (c3) at (6.2, -2.7) {Rocket Fleet};
-        \node[end]   (c4) at (12.4, -2.0) {Lunar Colony};
+        \node[start] (c1) at (-0.5, -2.0) {Earth Surface Demand};
+        \node[block] (c2) at (5.7, -1.3) {Elevator Chain};
+        \node[block] (c3) at (5.7, -2.7) {Rocket Fleet};
+        \node[end]   (c4) at (11.9, -2.0) {Lunar Colony};
         \draw[arrow] (c1) to[bend left=12] node[midway, above, sloped] {$x$} (c2);
         \draw[arrow] (c1) to[bend right=12] node[midway, below, sloped] {$M_{tot}-x$} (c3);
         \draw[arrow] (c2) to[bend left=12] node[midway, above, sloped] {} (c4);
@@ -660,32 +660,32 @@ On a Moon-only basis, the payback horizon can be centuries because the construct
 \section{Sensitivity Analysis}
 Sensitivity analysis complements the core results by testing whether the conclusions are brittle to modeling assumptions. In Question 1, the dominant sensitivity is schedule: tighter deadlines amplify rocket dependence, which increases both cost and risk, while longer horizons allow the elevator contribution to accumulate year by year. This is why the deterministic 24-year plan can be feasible on paper yet fragile under uncertainty, and why even modest extensions produce large improvements in reliability.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
     \centering
     \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/Fig5_Sensitivity_Core.png}
-        \small\textbf{(a)} Q1: Cost sensitivity at $Y=24$
+        \includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{Figures/Fig5_Sensitivity_Core.png}
+        \scriptsize\textbf{(a)} Q1: Cost sensitivity at $Y=24$
     \end{minipage}\hfill
     \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/Fig4_Reliability_Sensitivity.png}
-        \small\textbf{(b)} Q2: Deadline feasibility vs. rocket reliability
+        \includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{Figures/Fig4_Reliability_Sensitivity.png}
+        \scriptsize\textbf{(b)} Q2: Deadline feasibility vs. rocket reliability
     \end{minipage}
 
-    \vspace{4pt}
+    \vspace{-2pt}
 
     \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/D_reserve_sensitivity_platinum.png}
-        \small\textbf{(c)} Q3: Reserve required vs. disruption duration
+        \includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{Figures/D_reserve_sensitivity_platinum.png}
+        \scriptsize\textbf{(c)} Q3: Reserve required vs. disruption duration
     \end{minipage}\hfill
     \begin{minipage}{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Figures/Fig5_Green_Transition.png}
-        \small\textbf{(d)} Q4: Environmental payback vs. elevator share
+        \includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{Figures/Fig5_Green_Transition.png}
+        \scriptsize\textbf{(d)} Q4: Environmental payback vs. elevator share
     \end{minipage}
-    \caption{Cross-model sensitivity summary. (a) The 24-year plan is most sensitive to rocket-side marginal cost $c_R$, while $c_E$ has weaker influence. (b) Rocket reliability (failure probability and stand-down time) shifts the minimum feasible completion time. (c) Water security is highly sensitive to recycling efficiency: lower $\eta$ sharply inflates required strategic reserves for the same disruption. (d) Environmental sustainability shows a threshold behavior: low elevator share yields near-infinite payback, while higher elevator share rapidly improves payback.}
+    \caption{Cross-model sensitivity summary (Q1 cost, Q2 reliability, Q3 reserve, Q4 environmental payback).}
     \label{fig:sensitivity_panel}
 \end{figure}
 
